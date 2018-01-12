@@ -12,13 +12,12 @@ public class KaninpatGame extends NumberGame{
 		this.upperBound = upperBound;
 		
 		//random a secret number
-//		Random r = new Random();
+		Random r = new Random();
 		int lowerBound = 0;
-//		this.secret = r.nextInt(upperBound-lowerBound) + lowerBound;
-		this.secret = 8;
+		this.secret = r.nextInt(upperBound-lowerBound) + lowerBound;
 		
 		//starting message
-		super.setMessage("Try to guess a number between " + lowerBound + " and  " + upperBound + ".");
+		super.setMessage("Try to guess a number between " + lowerBound+1 + " and  " + upperBound + ".");
 		
 		//counter to count how many guesses the user makes
 		this.counter = 0;
