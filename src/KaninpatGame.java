@@ -17,7 +17,7 @@ public class KaninpatGame extends NumberGame{
 		this.secret = r.nextInt(upperBound-lowerBound) + lowerBound;
 		
 		//starting message
-		super.setMessage("Try to guess a number between " + lowerBound+1 + " and  " + upperBound + ".");
+		super.setMessage("Try to guess a number between " + (lowerBound+1) + " and  " + upperBound + ".");
 		
 		//counter to count how many guesses the user makes
 		this.counter = 0;
