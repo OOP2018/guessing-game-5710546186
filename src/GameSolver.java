@@ -1,14 +1,8 @@
 
 public class GameSolver {
-
-	private int guess;
-	private boolean correct = false;
 	
-	private String tooSmall = "small";
-	private String tooLarge = "large";
-	
-	private int lowerBound;
-	private int upperBound;
+	private final String tooSmall = "too small";
+	private final String tooLarge = "too large";
 	
 	public int play(NumberGame game) {
 		
@@ -18,24 +12,26 @@ public class GameSolver {
 		//display range
 		System.out.println( game.getMessage() );
 		
-		this.guess = game.getUpperBound() / 2;
-		
-		this.lowerBound = 0;
-		this.upperBound = game.getUpperBound();
+		int lowerBound = 1;
+		int upperBound = game.getUpperBound();
 				
-		while(correct == false) {
+		int guess = (lowerBound + upperBound) / 2;
+		
+		boolean correct = false;
+		while (!correct) {
 			
 			System.out.println("I think of " + guess);
 			correct = game.guess(guess);
 			System.out.println(game.getMessage());
 			
-			if(game.getMessage().toLowerCase().indexOf(tooSmall.toLowerCase()) != -1) {
-				this.lowerBound = this.guess;
-				this.guess = (this.upperBound + guess) / 2;
+			String msg = game.getMessage().toLowerCase();
+			if (msg.indexOf(tooSmall) != -1) {
+				lowerBound = guess + 1;
+				guess = (upperBound + lowerBound) / 2;
 			}
-			else if(game.getMessage().toLowerCase().indexOf(tooLarge.toLowerCase()) != -1) {
-				this.upperBound = this.guess;
-				this.guess = (this.lowerBound + guess) / 2;
+			else if (msg.indexOf(tooLarge) != -1) {
+				upperBound = guess - 1;
+				guess = (upperBound + lowerBound) / 2;
 			}
 			else {
 				correct = true;
