@@ -5,8 +5,8 @@ import java.util.Scanner;
  */
 public class GameConsole {
 	
-	private boolean correct = false;
 	private int guess;
+	private boolean correct = false;
 
 	/** play the game. */
 	public int play(NumberGame game) {
