@@ -5,22 +5,23 @@ import java.util.Scanner;
  */
 public class GameConsole {
 	
+	//Number to guess
 	private int guess;
-	private boolean correct = false;
 
 	/** play the game. */
 	public int play(NumberGame game) {
 		
 		Scanner console = new Scanner(System.in);
-		
-		//describe the game
+		//Describe the game
 		System.out.println( game.toString() );
-		
-		//display range
+		//Display range
 		System.out.println( game.getMessage() );
 		
-		while(correct == false) {
+		//Start guessing until the answer is correct
+		boolean correct = false;
+		while(!correct) {
 			
+			//Get user's input and show a hint
 			System.out.print("Your answer? ");
 			guess = console.nextInt();
 			correct = game.guess(guess);
