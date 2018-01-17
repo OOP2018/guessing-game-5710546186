@@ -13,13 +13,13 @@ public class Main {
 		GameSolver ui = new GameSolver( );
 		int solution = ui.play( game );
 		
-		//TODO display the answer returned by play
+		//Display the answer returned by play
 		System.out.println("Answer is " + solution);
 		
-		//TODO display how many guesses the user made
+		//Display how many guesses the user made
 		System.out.println(game.getCount() + " guess/es counted.");
 		
-		// verify answer
+		//Verify answer
 		System.out.println("game.guess returns " + game.guess(solution));
 		
 	}
