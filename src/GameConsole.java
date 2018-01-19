@@ -12,10 +12,6 @@ public class GameConsole {
 	public int play(NumberGame game) {
 		
 		Scanner console = new Scanner(System.in);
-		//Describe the game
-		System.out.println( game.toString() );
-		//Display range
-		System.out.println( game.getMessage() );
 		
 		//Start guessing until the answer is correct
 		boolean correct = false;

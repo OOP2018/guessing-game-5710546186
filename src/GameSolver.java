@@ -22,12 +22,13 @@ public class GameSolver {
 		//Finding a first number to guess
 		int lowerBound = 1;
 		int upperBound = game.getUpperBound();
-		int guess = lowerBound + (upperBound - lowerBound) / 2;
+		int guess = 0;
 		
 		//Start guessing until the answer is correct
 		boolean correct = false;
 		while (!correct) {
 			
+			guess = lowerBound + (upperBound - lowerBound) / 2;
 			correct = game.guess(guess);
 
 			if(correct) {
@@ -37,14 +38,12 @@ public class GameSolver {
 			String msg = game.getMessage().toLowerCase();
 			if (msg.contains(tooSmall)) {
 				lowerBound = guess + 1;
-				guess = (upperBound + lowerBound) / 2;
 			}
 			else if (msg.contains(tooLarge)) {
 				upperBound = guess - 1;
-				guess = (upperBound + lowerBound) / 2;
 			}
 			
-			if(lowerBound > upperBound || upperBound < lowerBound) {
+			if(lowerBound > upperBound) {
 				break;
 			}
 			
