@@ -28,25 +28,26 @@ public class GameSolver {
 		boolean correct = false;
 		while (!correct) {
 			
-			//System.out.println("I think of " + guess);
 			correct = game.guess(guess);
-			//System.out.println(game.getMessage());
-			
+
+			if(correct) {
+				break;
+			}
 			//Look for a hint and guess a new number
 			String msg = game.getMessage().toLowerCase();
-			if (msg.indexOf(tooSmall) != -1) {
+			if (msg.contains(tooSmall)) {
 				lowerBound = guess + 1;
 				guess = (upperBound + lowerBound) / 2;
 			}
-			else if (msg.indexOf(tooLarge) != -1) {
+			else if (msg.contains(tooLarge)) {
 				upperBound = guess - 1;
 				guess = (upperBound + lowerBound) / 2;
 			}
-			else {
-				correct = true;
+			
+			if(lowerBound > upperBound || upperBound < lowerBound) {
 				break;
 			}
-
+			
 		}
 		
 		return guess;
