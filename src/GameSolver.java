@@ -19,24 +19,18 @@ public class GameSolver {
 	 */
 	public int play(NumberGame game) {
 		
-		//Describe the game
-		System.out.println( game.toString() );
-				
-		//Display range
-		System.out.println( game.getMessage() );
-		
 		//Finding a first number to guess
 		int lowerBound = 1;
 		int upperBound = game.getUpperBound();
-		int guess = (lowerBound + upperBound) / 2;
+		int guess = lowerBound + (upperBound - lowerBound) / 2;
 		
 		//Start guessing until the answer is correct
 		boolean correct = false;
 		while (!correct) {
 			
-			System.out.println("I think of " + guess);
+			//System.out.println("I think of " + guess);
 			correct = game.guess(guess);
-			System.out.println(game.getMessage());
+			//System.out.println(game.getMessage());
 			
 			//Look for a hint and guess a new number
 			String msg = game.getMessage().toLowerCase();

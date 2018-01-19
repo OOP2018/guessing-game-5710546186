@@ -11,6 +11,13 @@ public class Main {
 		int upperBound = 100;
 		NumberGame game = new KaninpatGame(upperBound);
 		GameSolver ui = new GameSolver( );
+		
+		//Describe the game
+		System.out.println( game.toString() );
+		
+		//Display range
+		System.out.println( game.getMessage() );
+		
 		int solution = ui.play( game );
 		
 		//Display the answer returned by play
