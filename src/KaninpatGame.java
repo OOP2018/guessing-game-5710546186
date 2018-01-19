@@ -44,11 +44,6 @@ public class KaninpatGame extends NumberGame{
 	 */
 	public boolean guess(int number) {
 		
-		//Do the guessing if the answer isn't equal to the secret
-//		if(number != secret) {
-//			System.out.println("I think of " + number);
-//		}
-		
 		//Correct answer
 		if(number == secret) {
 			counter++;
@@ -58,12 +53,10 @@ public class KaninpatGame extends NumberGame{
 		
 		//Wrong answer
 		if(number < secret) {
-//			System.out.println(number + " is too small");
 			setMessage(number + " is too small");
 			counter++;
 		}
 		else if(number > secret) {
-//			System.out.println(number + " is too large");
 			setMessage(number + " is too large");
 			counter++;
 		}
